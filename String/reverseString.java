@@ -6,12 +6,20 @@ public class reverseString {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a String: ");
-        String str = sc.nextLine();
+        StringBuilder str = new StringBuilder(sc.nextLine());
 
-        String reversedStr = "";
-        for(int i =str.length() - 1; i>=0l; i--) {
-            reversedStr += str.charAt(i);
+        for(int i=0; i<str.length()/2; i++) {
+
+            int frontIndex = i;
+            int backIndex = str.length()-1-i;
+
+            char frontChar = str.charAt(frontIndex);
+            char backChar = str.charAt(backIndex);
+
+            str.setCharAt(frontIndex, backChar);
+            str.setCharAt(backIndex, frontChar);
         }
-        System.out.println("Reversed String: " + reversedStr);
+
+        System.out.println("Reversed String: " + str);
     }
 }
